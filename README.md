@@ -14,5 +14,4 @@
         Windows
           python -m venv venv
           venv\Scripts\activate
-          cd "нужная дериктория"
           pip install -r requirements.txt 
