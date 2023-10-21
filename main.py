@@ -72,6 +72,10 @@ def two(update, context):
 def three(update, context):
     command_processing(update, context, 'three')
 
+# Обработчик команды /stocks
+def stocks(update, context):
+    command_processing(update, context, 'stocks')
+
 
 # Функция для получения клавиатуры с категориями товаров
 def get_categories_keyboard():
@@ -96,6 +100,12 @@ def button_click(update, context):
         context.bot.send_message(
             chat_id=update.callback_query.from_user.id,
             text="Возвращаемся в главное меню.",
+            reply_markup=get_main_keyboard()
+        )
+    elif query.data == 'stocks':
+        context.bot.send_message(
+            chat_id=update.callback_query.from_user.id,
+            text="Акции на товары:",
             reply_markup=get_main_keyboard()
         )
     else:
@@ -135,6 +145,9 @@ def main():
 
     # Обработчик команды /three
     dp.add_handler(CommandHandler("three", three))
+
+    # Обработчик команды /stocks
+    dp.add_handler(CommandHandler("stocks", stocks))
 
     # Обработчик для нажатия кнопок
     dp.add_handler(CallbackQueryHandler(button_click))
