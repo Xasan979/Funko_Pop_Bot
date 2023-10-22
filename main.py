@@ -20,7 +20,7 @@ def handle_text(update, context):
 # Получение основной клавиатуры
 def get_main_keyboard():
     keyboard = [[KeyboardButton("Категории товаров", callback_data='assortment')],
-                [KeyboardButton("Акции", callback_data='assortment')],
+                [KeyboardButton("/Акции", callback_data='assortment')],
                 [KeyboardButton("Предзаказы", callback_data='assortment')],
                 [KeyboardButton("Связаться с нами", callback_data='assortment')]]
     return ReplyKeyboardMarkup(keyboard, resize_keyboard=True)
